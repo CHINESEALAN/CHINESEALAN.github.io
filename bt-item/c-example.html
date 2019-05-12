@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Comprehensive example</title>
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css"
+      integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+      crossorigin="anonymous"
+    />
+
+    <!--[if lt IE 9]>
+      <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+    <style>
+    .navbar{
+        margin-bottom: 0px;
+    }
+     p{
+        text-indent: 2em;
+    }
+    #musicImg{
+        margin: auto;
+        animation: imgRotate 5s linear infinite;
+        animation-play-state:paused; 
+    }
+    @keyframes imgRotate{
+        from{
+            transform: rotate(0deg);
+        }to{
+            transform: rotate(360deg);
+        }
+    }
+
+    #musicPlayer{
+        width: 100%;
+    }
+    .table{
+       margin:10px auto;
+        font-size: 25px;
+    }
+    .glyphicon{
+        cursor:pointer;
+    }
+    footer{
+        text-align: center;
+        margin-top: 50px;
+        padding-top: 20px;
+        boder-top:  solid 1px #ccc;
+    }
+    </style>
+    <script>
+        // 音乐
+        $(function(){
+            $("#musicPlayer").on("play",function(){
+                console.log("kai");
+                $("#musicImg").css("animation-play-state","running");
+            });
+            $("#musicPlayer").on("pause",function(){
+                console.log("guan");
+                $("#musicImg").css("animation-play-state","paused");
+            });
+
+           $(".glyphicon-play-circle").on("click",function(){
+            var music = $(this).data("music");
+            var img = $(this).data("img");
+            $("#musicPlayer").prop("src",music);
+            $("#musicImg").prop("src",img);
+           });
+
+
+        });
+        // scroll
+        $(function(){
+        $(".jianjie").on("click",function () {
+        $("html,body").stop().animate({scrollTop:$("#jianjie").offset().top},1000);
+        });
+        $(".renwu").on("click",function () {
+        $("html,body").stop().animate({scrollTop:$("#renwu").offset().top},1000);
+        });
+        $(".yinyue").on("click",function () {
+        $("html,body").stop().animate({scrollTop:$("#yinyue").offset().top},1000);
+        });
+        });
+        // fanyi
+
+
+    </script>
+  </head>
+  <body>
+
+      <!-- 导航条 -->
+    <nav class="navbar navbar-default navbar-inverse">
+      <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button
+            type="button"
+            class="navbar-toggle collapsed"
+            data-toggle="collapse"
+            data-target="#bs-example-navbar-collapse-1"
+            aria-expanded="false"
+          >
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">周杰伦</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+            <li class="active">
+              <a class="jianjie">简介 <span class="sr-only">(current)</span></a>
+            </li>
+            <li><a class="renwu">人物</a></li>
+            <li><a class="yinyue">音乐</a></li>
+          </ul>
+
+
+          <ul class="nav navbar-nav navbar-right">
+               
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">language <span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="#">中文</a></li>
+                    <li><a href="#">English</a></li>
+                    <li><a href="#">한국어 </a></li>
+                  </ul>
+                </li>
+              </ul>
+        
+  
+        </div>
+        <!-- /.navbar-collapse -->
+      </div>
+      <!-- /.container-fluid -->
+    </nav>
+
+<!-- 轮播图 -->
+
+<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+          <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+          <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+          <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+        </ol>
+      
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner" role="listbox">
+          <div class="item active">
+            <img src="img/lunbo3.jpg" alt="...">
+            <div class="carousel-caption">
+              ...
+            </div>
+          </div>
+          <div class="item">
+            <img src="img/lunbo2.jpg" alt="...">
+            <div class="carousel-caption">
+              ...
+            </div>
+          </div>
+          <div class="item">
+                <img src="img/lunbo1.jpg" alt="...">
+                <div class="carousel-caption">
+                  ...
+                </div>
+              </div>
+        </div>
+      
+        <!-- Controls -->
+        <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+          <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+          <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+      </div>
+
+
+<!-- 介绍 -->
+<div class="container " id="jianjie">
+    <div class="page-header"><h1>个性说明 <small> 周杰伦的成长史</small></h1></div>
+    <div class="well">
+            <p>周杰伦（英语：Jay Chou；1979年1月18日－），台湾著名流行歌曲男歌手、音乐家、唱片制片人、演员、导演，同时也是电竞团队队长兼老板、服饰品牌老板。以其个人风格和音乐创作能力著称，影响华语乐坛。</p>
+            <p>在2000年，周杰伦发行了他的首张专辑《Jay》，从属于唱片公司阿尔发音乐。从此以后，他的音乐获得了遍及亚洲的荣誉，尤其在台湾、中国大陆、马来西亚、香港、新加坡、印度尼西亚、韩国、日本和西方国家——例如美国和澳大利亚——的亚裔群体中。他卖出了超过3000万张专辑并获得了许多针对他的音乐工作的奖项。周杰伦在工作与他的专辑时也为其他艺术家写歌。在2003年，他是《时代》杂志（亚洲版）的封面故事，被称为“亚洲流行音乐的新天王”。他其后开展了六个世界巡演，在世界各地的城市中对超过1000万人表演。</p>
+            
+            <p>周杰伦在电影《头文字D》（2005）中开始了他的电影事业；他从此涉足许多其他的电影企划。周杰伦也管理他自己的唱片和经纪公司杰威尔音乐。在2016年，他重新进入了好莱坞，在电影《惊天魔盗团2》中扮演小李。</p>
+    </div>
+</div>
+<!-- 人物 -->
+<div class="container" id="renwu">
+        <div class="page-header"><h1>人物传记</h1></div>
+        <div class="alert alert-success" role="alert">
+            <div class="row">
+                <div class="col-xs-12 col-md-4 col-lg-4">
+                    <img class="img-rounded img-responsive" src="img/jay1.jpg">
+                </div>
+                <div class="col-xs-12 col-md-8 col-lg-8">
+                    <h1>早年生活</h1>
+                    <p>周杰伦他自小对音乐表现出浓厚的兴趣，而且喜欢模仿歌星、演员表演和变魔术。3岁开始学习钢琴。周杰伦国小时住在台北市光华商场附近，就读忠孝国小。国中时就读金华国中，此时期他的父母因长年争执而决议离婚，使周杰伦的性情大受影响。除了音乐外，周杰伦热爱篮球，他在国中参加篮球队，结识学长陈建州。在同侪中是高手，球场上的表现常受众人围观。</p>
+                    <p>高中就读于台北县私立淡江中学第一届音乐科（本来是想报考华冈艺校，但错过名期间，幸好淡江中学恰巧新设了音乐科），主修钢琴，副修大提琴，为将来的发展打下了深厚的基础[7]。这时的他因正值青春期，常常秀琴技想吸引女同学的注意。但学科成绩不甚理想，故高中毕业时，大学联考落榜。又因患有僵直性脊椎依据台湾兵役制度得以免服义务兵役[8]。</p>
+                    <p>周杰伦曾说过表示少年时受到香港乐坛“四大天王”之一张学友的专辑《吻别》的影响，从而喜欢并开始专注于流行音乐[9]。另外他也透漏过，除了张学友以外，李恕权与史帝夫·汪达也是他童年时影响他很深的人，李恕权每回出现在电视上，周杰伦便会在电视机面前模仿他，而史帝夫·汪达有一首《I just called to say I love you》是他的婶婶曾在他叔父的葬礼中播放的歌曲。由于他的音乐基础扎实，令其在流行音乐创作方面如鱼得水。</p>
+                </div>
+            </div>
+        </div>
+
+
+<div class="alert alert-info" role="alert">
+        <div class="row">
+            
+            <div class="col-xs-12 col-md-8 col-lg-8">
+                <h1>正式出道</h1>
+                <p>周杰伦首次亮相幕前，是在1997年8月，当时是因为高中同学参加TVBS-G的选秀节目《超级新人王》而为朋友担任钢琴伴奏。虽然他同学歌唱未获奖，该节目主持人吴宗宪却对周杰伦的乐谱作曲工整印象深刻，认为其有潜力进而签约发掘进入乐坛。吴宗宪非常肯定周杰伦的才华，所以先让他专注作曲的历练后再出唱片，虽写过多首歌曲不过仍有不少曲目未被他人采用而退稿，例如：刘德华《眼泪知道》和张惠妹《忍者》。吴宗宪对周杰伦很肯定也很支持，不仅自己唱片还有公司（阿尔发音乐）多数歌手的歌曲都用他的创作歌曲，还让他登上所有自己的节目，在各大节目中大力推荐。周杰伦的歌曲很快变成当时非常流行的音乐，日后也成为了真正的亚洲巨星，他也曾说过：“没有吴宗宪就没有周杰伦。”。阿尔发音乐中，唯周杰伦作曲与方文山（吴宗宪掘发）作词的合作作品最受青睐，无形中两人的合作形成一种绝佳的必胜“定律”了</p>
+                <p>总经理杨峻荣偶然听到《可爱女人》的试听带后，认为周杰伦可以出片了。在得到老板吴宗宪的认同后，2000年周杰伦依唱片合约内容创作了五十首歌曲，由吴宗宪钦挑十首，便开始准备制作自己的第一张专辑。吴宗宪提供了新台币四千万元作为专辑筹备的部分资金，于当年11月发行周杰伦首张个人专辑《Jay》，并带着周杰伦在自己的节目上大力曝光行销。此张专辑具备别于当时市场主流的突破性曲风，风格融合R&B、Hip-Hop、古典和中国风，初步奠定了周杰伦的“周式曲风”和歌手形象</p>
+            </div>
+
+            <div class="col-xs-12 col-md-4 col-lg-4">
+                    <img class="img-rounded img-responsive" src="img/jay2.jpg">
+                </div>
+        </div>
+</div>
+
+<div class="alert alert-warning" role="alert">
+        <div class="row">
+            <div class="col-xs-12 col-md-4 col-lg-4">
+                <img class="img-rounded img-responsive" src="img/jay3.jpg">
+            </div>
+            <div class="col-xs-12 col-md-8 col-lg-8">
+                <h1>
+                    电影事业
+                </h1>
+                <p>
+                        2005年，周杰伦的第一个电影角色是在《头文字D》中担任男主角，正式进入电影界。这可以推出他的首部作品，并使他接触到日本的观众 [32]；这部电影是根据日本漫画头文字D改编，周杰伦扮演藤原拓海，一个安静地、很少表达自己的天才车手。有些评论家批评他的表演淡而无味[33] ，而一些人认为他表现自然，但却是因为角色与本人相似而只是在演自己 [34][35] ；他在《头文字D》的表现赢得了香港电影金像奖和金马奖的最佳新人奖
+                </p>
+                <p>
+                        2006年，周杰伦在他第二部电影《满城尽带黄金甲》中他饰演二王子元杰，在电影中他试图表现了中国的传统美德——“孝”，也是他个性的缩影。这一部在国际上发行的电影让北美观众首次看到周杰伦。中国的电影评论家对他的表演的评论从“缺乏层次及张力” [41] 到“未失水准”[42] ，西方影评则认为其演技十分一般[43][44][45][46][47]。他在《满城尽带黄金甲》的表现被提名2007年第26届香港电影金像奖最佳男配角
+                </p>
+                <p>
+                        2011年，周杰伦在美国三维电影《青蜂侠》担任青蜂侠助手“Kato”的角色，是他在好莱坞的处女作。[50] 此外他的第二张专辑《范特西》里面的经典歌曲《双截棍》被采用于青蜂侠电影的片尾曲，在全球放送
+                </p>
+                <p>
+                        2018年，曾经与周杰伦打造其第二部自导自演电影长片《天台爱情》的创映电影总经理刘畊宏与量能文创执行长彭康育宣布合作“创能计划”，投资拍摄赛车电影《阿里传》，并预计邀请阮经天作为男主角。周杰伦则坦言这是因为《头文字D》续集搁浅而产生的念头
+                </p>
+                </div>
+                </div>
+                </div>
+
+</div>
+<!-- 音乐播放器 -->
+<div class="container lang" id="yinyue">
+    <div class="page-header">
+        <h1>音乐 <small> 蓝调 | R&B | 中国风</small></h1>
+    </div>
+    <div class="row">
+        <div class="col-xs-12 col-md-3 col-lg-3">
+            <audio id="musicPlayer" src="music/七里香.mp3" controls="controls" autoplay></audio>
+            <div class="alert alert-danger" role="alert">
+                <img id="musicImg" class="img-circle img-responsive" src="img/bf3.jpg">
+            </div>
+        </div>
+        <div class="col-xs-12 col-md-9 col-lg-9">
+            <table class="table table-striped" >
+                <thead>
+                    <tr>
+                        <th>歌曲名</th>
+                        <th>唱作人</th>
+                        <th>曲风</th>
+                        <th>播放</th>
+                    </tr>
+                </thead>
+            <tbody>
+                <tr>
+                    <td>七里香</td>
+                    <td>周杰伦</td>
+                    <td>蓝调</td>
+                    <td><span class="glyphicon glyphicon-play-circle" data-img="img/bf3.jpg" data-music="music/七里香.mp3"></span></td>
+                </tr>
+                <tr>
+                        <td>夜的第七章</td>
+                        <td>周杰伦</td>
+                        <td>鬼曲</td>
+                        <td><span class="glyphicon glyphicon-play-circle" data-img="img/bf2.jpg" data-music="music/夜的第七章.mp3"></span></td>
+                    </tr>
+                    <tr>
+                            <td>以父之名</td>
+                            <td>周杰伦</td>
+                            <td>hit-pop</td>
+                            <td><span class="glyphicon glyphicon-play-circle" data-img="img/bf1.jpg" data-music="music/以父之名.mp3"></span></td>
+                        </tr>
+            </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+    <footer>
+        版权所有CHINESEALAN@2019
+    </footer>
+
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  </body>
+</html>
